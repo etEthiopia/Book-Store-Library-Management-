@@ -1,0 +1,58 @@
+﻿@model LendViewModel
+<div class="row orderForm">
+
+    <form asp-controller="Lend" asp-action="LendBook" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Lend a book</h3>
+        @Html.HiddenFor(m => Model.Book.BookId)
+        
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+
+
+
+                    <span asp-validation-for="Book.Title" class="text-danger"></span>
+
+                    <label asp-for="Book.Borrower" class="col-md-2 control-label"> </label>
+
+                    <input id="gotcustomer" asp-for="Book.BorrowerId" class="form-control" value="1" />
+                    <br />
+                    <br />
+                    <br />
+                    <input class="btn btn-success" type="submit" value="Lend" />
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <table class="table table-striped table-hover" id="tabllle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Customer c in Model.Customers)
+                            {
+                                
+                            <tr>
+                                <td> <input class="btn btn-default" type="button" onclick="searchcustomer(@c.CustomerId)" value=@c.CustomerId  /></td>
+                                <td>@c.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+
+
+                </table>
+            </div>
+
+
+        </div>
+        
+                
+</form>
+</div>

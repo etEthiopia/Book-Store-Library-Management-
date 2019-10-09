@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Book>
+
+
+<table class="table table-striped table-hover" id="tabllle">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Authors name</th>
+            <th>Category</th>
+            <th>Year</th>
+            <th>Edit book</th>
+            <th>Rent book</th>
+            <th>Delete book</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Book book in Model)
+        {
+        <tr>
+            <td>@book.BookId</td>
+            <td>@book.Title</td>
+            <td>@book.Author.Name</td>
+            <td>@book.Category</td>
+            <td>@book.Year</td>
+            <td><a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Update" asp-route-id="@book.BookId">Edit</a></td>
+            @if (book.BorrowerId == 0)
+            {
+
+                <td><a class="btn btn-success" asp-area="" asp-controller="Lend" asp-action="LendBook" asp-route-bookId="@book.BookId">Rent</a></td>
+            }
+            @if (book.BorrowerId != 0)
+            {
+                <td><a class="btn btn-danger" asp-area="">Out</a></td>
+            }
+            <td><a class="btn btn-danger" asp-area="" asp-controller="Book" asp-action="Delete" asp-route-id="@book.BookId" asp-route-authorId="@ViewBag.AuthorId">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

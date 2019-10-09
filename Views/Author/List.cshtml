@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Author>
+
+
+<div class="row add">
+    <a class="btn"  asp-controller="Author" asp-action="Create"><img class="img-circle" src="~/images/addback.png" height="40" width="40" /></a>
+    
+    
+</div>
+<table class="table table-striped table-hover" id="tabllle">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Books</th>
+            
+            <th>View book list</th>
+
+            <th>Delete author</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+        <tr>
+            <td> <img height="50" width="50" src=@author.Image /> </td>
+            <td>@author.AuthorId</td>
+            <td>@author.Name</td>
+            <td>@author.Books?.Count </td>
+            
+            @if (author.Books?.Count == 0)
+            {
+                <td><a class="btn btn-default" asp-area="">View book list</a></td>
+            }
+            else
+            {
+                <td><a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="List" asp-route-authorId="@author.AuthorId">View book list</a></td>
+            }
+            <td><a class="btn btn-danger" asp-area="" asp-controller="Author" asp-action="Delete" asp-route-id="@author.AuthorId">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

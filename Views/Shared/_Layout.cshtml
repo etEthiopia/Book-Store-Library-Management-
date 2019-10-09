@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LibraryManagement</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        
+        <link rel="stylesheet" href="~/css/start_template.css" />
+        <link rel="stylesheet" href="~/css/4-col-portfolio.css" />
+        <link rel="stylesheet" href="~/css/card.css" />
+        <link rel="stylesheet" href="~/plugins/jquery.dataTables.min.css">
+
+        <link rel="stylesheet" href="~/plugins/dataTables.min.css">
+        <script>
+
+
+
+            $(document).ready(function () {
+                $('#tabllle').DataTable({
+                });
+            })
+
+
+
+
+        </script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @RenderSection("datatable", required: false)
+</head>
+
+
+
+<body style="background-image:url(../../wwwroot/images/books.jpg)" class="bodyy" id="cardbody">
+
+    <div class="">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <a asp-area="" class="nav-link"   id="navlink" asp-controller="Book" asp-action="List"><h3 class="navbar-header">Books</h3></a>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" id="navlink" asp-area="" asp-controller="Customer" asp-action="List">Customers</a>
+
+
+                    <a class="nav-link"  id="navlink" asp-area="" asp-controller="Author" asp-action="List">Authors</a>
+
+                    
+
+                    <a class="nav-link"  id="navlink" asp-area="" asp-controller="Return" asp-action="List">Return Book</a>
+
+                    @if (Admin.logged)
+                    {
+                        <a class="nav-link"  id="navlink" asp-area="" asp-controller="Admin" asp-action="Logout">Log Out</a>
+                    }
+
+                    
+
+                </nav>
+            </div>
+        </header>
+
+        
+
+
+        <div class="container dagiBody body-content">
+            @RenderBody()
+        </div>
+        
+        
+        <environment include="Development">
+
+
+            <script asp-append-version="true" src="~/lib/jquery/dist/jquery.js"></script>
+            <script asp-append-version="true" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script asp-append-version="true" src="~/plugins/jquery-3.3.1.js"></script>
+            <script asp-append-version="true" src="~/plugins/jquery.dataTables.min.js"></script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            
+            <script>
+
+                $(document).ready(function () {
+                    $('#tabllle').DataTable();
+                });
+            </script>
+        </environment>
+            
+        <environment exclude="Development">
+            
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            
+        </environment>
+        
+
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>

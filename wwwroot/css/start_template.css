@@ -1,0 +1,66 @@
+.bodyy {
+  
+}
+
+.xxbody{
+  /*background-image: url(../images/books.jpg);*/
+}
+.bac{
+  
+    background-image: url(../images/ones2.png);
+   height:20%;
+  
+}
+
+.dagiBody{
+    margin-top:40px;
+}
+.whitee {
+    color: wheat;
+}
+.starter-template {
+  padding: 100px 50px;
+  text-align: center;
+}
+.row .portfolio-item{
+  margin-bottom: 0px;
+}
+.col-lg-3{
+  margin-bottom: 0px;
+}
+.hh-100{
+  margin-bottom: 17px;
+  margin-top: 33px;
+  height:350px;
+  background-color:#98561F;
+}
+.book_det a .btn{
+  background-color:#98561F;
+  border-color: #B89142;
+}
+#btn{
+  background-color:#98561F;
+  border-color: #B89142;
+  width:100px;
+  font-size: 1.5em;
+}
+
+#xx{
+  padding: 0px;
+  height: 302px;
+}
+.quantity{
+  font-size: 2em;
+  float: right;
+  margin-left: 5px;
+}
+.book_title{
+  padding:0.25rem;
+}
+.book_det{
+  padding:0.25rem;
+}
+.inv{
+
+  visibility: hidden;
+}

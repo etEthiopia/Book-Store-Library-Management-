@@ -1,0 +1,41 @@
+﻿@model AdminViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="main-content-agile">
+    <div class="sub-main-w3" id="login">
+        <form asp-controller="Admin" asp-action="Login" method="post" class="form-horizontal" role="form">
+            <h2> Sign in</h2>
+            
+
+
+
+            <div class="form-group form-style-agile">
+                <label asp-for="Admin.AdminId" class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="Admin.AdminId" type="text" class="form-control" placeholder="Admin Id" />
+                    <span asp-validation-for="Admin.AdminId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group form-style-agile">
+                <label asp-for="Admin.Password" class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="Admin.Password" type="password" class="form-control" placeholder="" />
+                    <span asp-validation-for="Admin.Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-6">
+                    
+                    <input class="btn btn-success" type="submit" value="Log In" />
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
